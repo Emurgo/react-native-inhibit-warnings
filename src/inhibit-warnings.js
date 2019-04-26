@@ -30,7 +30,6 @@ module.exports = function findAndFix () {
 
 		const shouldProceed = whitelist
       .filter((whitelistedPath) => {
-		    console.log(project);
         return project.filepath.includes(whitelistedPath);
       })
       .length;
