@@ -18,12 +18,26 @@ function updateProject (project) {
 module.exports = function findAndFix () {
 // Find all of the pbxproj files we care about.
 	const pattern = './node_modules/**/*.xcodeproj/project.pbxproj';
+	
+	const whitelist = [
+	  "node_modules/react-native/React/React.xcodeproj"
+  ];
 
 	utilities.updateProjectsMatchingGlob(pattern, (err, project) => {
 		if (err) {
 			return console.error(chalk.red('⃠ [inhibit-warnings]: Error!', err));
 		}
 
+		const shouldProceed = whitelist
+      .filter((whitelistedPath) => {
+		    console.log(project);
+        return project.filepath.includes(whitelistedPath);
+      })
+      .length;
+
+		if (!shouldProceed) return false;
+
+		console.log(project);
 		return updateProject(project);
 	});
 };
