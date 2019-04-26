@@ -36,7 +36,6 @@ module.exports = function findAndFix () {
 
 		if (!shouldProceed) return false;
 
-		console.log(project);
 		return updateProject(project);
 	});
 };
