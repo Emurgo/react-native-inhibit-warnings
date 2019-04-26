@@ -17,7 +17,7 @@ function updateProject (project) {
 
 module.exports = function findAndFix () {
 // Find all of the pbxproj files we care about.
-		const pattern = './node_modules/**/*.xcodeproj/project.pbxproj';
+	const pattern = './node_modules/**/*.xcodeproj/project.pbxproj';
 	
 	const whitelist = [
 	  "node_modules/react-native/React/React.xcodeproj"
