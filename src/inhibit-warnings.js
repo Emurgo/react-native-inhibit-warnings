@@ -20,7 +20,8 @@ module.exports = function findAndFix () {
 	const pattern = './node_modules/**/*.xcodeproj/project.pbxproj';
 	
 	const whitelist = [
-	  "node_modules/react-native/React/React.xcodeproj"
+	  "node_modules/react-native/React/React.xcodeproj",
+    "node_modules/react-native-camera"
   ];
 
 	utilities.updateProjectsMatchingGlob(pattern, (err, project) => {
